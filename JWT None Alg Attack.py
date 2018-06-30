@@ -1,4 +1,3 @@
-import jwt
 import base64
 
 # header = '{"alg":"RS256","typ":"JWT"}'

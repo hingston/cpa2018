@@ -43,7 +43,7 @@ locales = ["af", "af-NA", "af-ZA", "agq", "agq-CM", "ak", "ak-GH", "am", "am-ET"
            "uz-Arab-AF", "uz-Cyrl", "uz-Cyrl-UZ", "uz-Latn", "uz-Latn-UZ", "vai", "vai-Latn", "vai-Latn-LR", "vai-Vaii",
            "vai-Vaii-LR", "vi", "vi-VN", "vun", "vun-TZ", "xog", "xog-UG", "yav", "yav-CM", "yo", "yo-NG", "zh",
            "zh-Hans", "zh-Hans-CN", "zh-Hans-HK", "zh-Hans-MO", "zh-Hans-SG", "zh-Hant", "zh-Hant-HK", "zh-Hant-MO",
-           "zh-Hant-TW", "zu", "zu-ZA"]
+           "zh-Hant-TW", "zu", "zu-ZA, tlh_AA"]
 
 print(len(locales))
 ignore_locales = ["ar_SA", "cs_CZ", "da_DK", "de_DE", "el_GR", "es_ES", "et_EE", "fi_FI", "fr_FR", "he_IL", "hi_IN",
@@ -55,7 +55,7 @@ s = requests.Session()
 
 
 def test_locale(locale):
-    if (locale.replace('-', '_') not in ignore_locales):
+    if locale.replace('-', '_') not in ignore_locales:
         r = s.get('http://43.241.202.33:3003/i18n/' + locale.replace('-', '_') + '.json')
 
         try:

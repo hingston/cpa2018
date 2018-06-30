@@ -3,8 +3,8 @@ import json
 import requests
 
 s = requests.Session()
-#https://en.wikipedia.org/wiki/Simpson_family#Other_pets
-#answers = ["Laddie", "laddie", "Santa's Little Helper", "Snowball II", "Snowball"]
+# https://en.wikipedia.org/wiki/Simpson_family#Other_pets
+# answers = ["Laddie", "laddie", "Santa's Little Helper", "Snowball II", "Snowball"]
 answers = ["snowball"]
 
 for answer in answers:
