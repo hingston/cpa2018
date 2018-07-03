@@ -11,13 +11,16 @@ names = [x.strip() for x in names]
 
 
 def check_name(id):
-    r = s.post(
-        'http://lolinactive.com/LoLInactive.php',
-        data={"region": 'ru', "summonerName": random.choice(names)},
-        headers={'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-    )
-    print(r.text)
-    print(r)
+    try:
+        r = s.post(
+            'http://lolinactive.com/LoLInactive.php',
+            data={"region": 'ru', "summonerName": random.choice(names)},
+            headers={'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        )
+        print(r.text)
+        print(r)
+    except:
+        pass
 
 
 for _ in range(100):

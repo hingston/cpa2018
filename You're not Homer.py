@@ -4,7 +4,7 @@ import requests
 
 s = requests.Session()
 
-r = s.get('http://43.241.202.33:3003/rest/captcha/', cookies={'from-my': 'browser'})
+r = s.get('http://43.241.202.47:3003/rest/captcha/')
 response = json.loads(r.text)
 headers = {'Content-type': 'application/json'}
 data = {
@@ -16,7 +16,7 @@ data = {
 }
 data_json = json.dumps(data)
 r = s.post(
-    'http://43.241.202.33:3003/api/Feedbacks/',
+    'http://43.241.202.47:3003/api/Feedbacks/',
     data=data_json,
     headers=headers,
 )
