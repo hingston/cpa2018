@@ -20,12 +20,7 @@ token = encode(header) + '.' + encode(payload) + "." + encode(signature)
 
 print(token)
 
-
-
-
-
 s = requests.Session()
 s.headers.update({'Authorization': "Bearer " + token})
 r = s.get('http://43.241.202.33:3003/rest/captcha/')
 response = json.loads(r.text)
-

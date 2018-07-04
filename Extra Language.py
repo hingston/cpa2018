@@ -2,7 +2,7 @@ import json
 import string
 import sys
 from multiprocessing.pool import ThreadPool
-import time
+
 import requests
 
 
@@ -41,7 +41,7 @@ def generate_locales():
 
 def test_locale(locale):
     global failed
-    #global start_time
+    # global start_time
     try:
         json.loads(s.get('http://43.241.202.47:3003/i18n/' + locale + '.json').text)
         # print(locale.replace('-', '_'), r)
@@ -54,17 +54,16 @@ def test_locale(locale):
         if failed % 100 == 0:
             print(str(failed) + "/" + str(total) + " = " + str(round(failed / total * 100.0, 2)) + "%")
 
-
-            #elapsed = time.time() - start_time
-            #start_time = time.time()
-            #print("Seconds per 1000:", elapsed)
-            #print("Time to complete:", elapsed * (total / 1000))
+            # elapsed = time.time() - start_time
+            # start_time = time.time()
+            # print("Seconds per 1000:", elapsed)
+            # print("Time to complete:", elapsed * (total / 1000))
 
 
 failed = 0
 total = 0
 all_locales = generate_locales()
 s = requests.Session()
-#start_time = time.time()
+# start_time = time.time()
 with ThreadPool(200) as p:
     p.map(test_locale, all_locales)

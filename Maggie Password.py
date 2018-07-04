@@ -1,10 +1,9 @@
 import base64
+import hashlib
 import json
-import sys
-from multiprocessing.pool import ThreadPool
 
 import requests
-import hashlib
+
 # Maggie.Simpson@simpsonmail.com
 email = "Maggie.Simpson@googlemail.com"
 
