@@ -22,7 +22,7 @@ print(hash_object)
 print(hex_dig)
 
 r = requests.post(
-    'http://43.241.202.33:3003/rest/user/login',
+    'http://43.241.202.47:3003/rest/user/login',
     data=json.dumps({
         "email": "Maggie.Simpson@simpsonmail.com",
         "password": hex_dig,
