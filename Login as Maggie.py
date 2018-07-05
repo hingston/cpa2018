@@ -17,9 +17,6 @@ s = s.encode('utf-8')
 
 hash_object = hashlib.md5(s)
 hex_dig = hash_object.hexdigest()
-print(s)
-print(hash_object)
-print(hex_dig)
 
 r = requests.post(
     'http://43.241.202.47:3003/rest/user/login',
@@ -30,4 +27,6 @@ r = requests.post(
     headers={'Content-type': 'application/json;charset=utf-8'},
 )
 
-print(r)
+print("Base64 before hashing:", s)
+print("Hash:", hex_dig)
+print("Status code:", r.status_code)
