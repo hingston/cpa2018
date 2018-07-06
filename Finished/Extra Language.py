@@ -22,19 +22,17 @@ def generate_locales():
     final = list(set(locales) - set(ignore_locales))
     global total
     total = len(final)
-    print("Total:", total)
     return final
 
 
 def test_locale(locale):
     global found
     if not found:
-        global failed
         try:
             json.loads(s.get('http://43.241.202.47:3003/i18n/' + locale + '.json').text)
-            print(str(failed) + "/" + str(total) + " = " + str(round(failed / total * 100.0, 2)) + "%")
             found = locale
         except ValueError:
+            global failed
             failed = failed + 1
             if failed % 1000 == 0:
                 print(str(failed) + "/" + str(total) + " = " + str(round(failed / total * 100.0, 2)) + "%")
@@ -46,10 +44,13 @@ total = 0
 all_locales = generate_locales()
 s = requests.Session()
 
+print("Total:", total)
+
 with ThreadPool(10) as p:
     p.map(test_locale, all_locales)
 
 if found:
+    print(str(failed) + "/" + str(total) + " = " + str(round(failed / total * 100.0, 2)) + "%")
     print('Found at: http://43.241.202.47:3003/i18n/' + str(found) + '.json')
 else:
     print('None found!')
