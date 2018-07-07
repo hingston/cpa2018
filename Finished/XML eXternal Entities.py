@@ -9,5 +9,5 @@ r = requests.post(
     }
 )
 
-print("Status code:",str(r.status_code) + "\n")
-print(r.text)
+print("Status code:", str(r.status_code) + "\n")
+print(r.text)  # TODO save as .html and open Chrome?
