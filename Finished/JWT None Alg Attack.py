@@ -19,7 +19,7 @@ def gen_token():
 token = gen_token()
 s = requests.Session()
 s.headers.update({'Authorization': "Bearer " + token})
-r = s.get('http://43.241.202.33:3003/rest/captcha/')  # TODO better URL to use it on?
+r = s.get('http://43.241.202.47:3003/rest/captcha/')  # TODO better URL to use it on?
 
 print("Forged token:", token)
 print("Status code:", r.status_code)
