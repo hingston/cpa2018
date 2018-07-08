@@ -6,19 +6,17 @@ s = requests.Session()
 
 r = s.get('http://43.241.202.47:3003/rest/captcha/')
 response = json.loads(r.text)
-headers = {'Content-type': 'application/json'}
-data = {
+data = json.dumps({
     "UserId": 8,
     "captcha": str(eval(response['captcha'])),
     "comment": "I'm not Homer!",
     "rating": 5,
     "captchaId": str(response['captchaId'])
-}
-data_json = json.dumps(data)
+})
 r = s.post(
     'http://43.241.202.47:3003/api/Feedbacks/',
-    data=data_json,
-    headers=headers,
+    data=data,
+    headers={'Content-type': 'application/json'},
 )
-print(data)
-print(r)
+print("Data:", data)
+print("Status code:", r.status_code)
