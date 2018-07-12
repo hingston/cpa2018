@@ -4,7 +4,7 @@ import sys
 import requests
 
 # Update basket number! Find by adding anything to cart with Chrome's network tab in devtools open
-basket_id = 9
+basket_id = 1
 
 s = requests.Session()
 
