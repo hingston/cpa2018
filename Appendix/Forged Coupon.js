@@ -11,7 +11,7 @@ rl.on('line', function (line) {
     // Test if the current key was used to make a known encrypted coupon
     if (cryptr.encrypt('JAN16-20') === '73d18881deab6985d893cbe87c4b9986') {
 
-        //The found key
+        // The found key
         console.log('Key used: ' + line); // bacon
 
         // Create fake coupon
