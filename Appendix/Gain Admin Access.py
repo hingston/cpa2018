@@ -3,7 +3,7 @@ import sys
 
 import requests
 
-with open("./passwords") as f:
+with open("./passwords.txt") as f:
     passwords = f.readlines()
 passwords = [x.strip() for x in passwords]
 
