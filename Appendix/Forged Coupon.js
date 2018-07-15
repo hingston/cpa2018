@@ -12,7 +12,7 @@ rl.on('line', function (line) {
     if (cryptr.encrypt('JAN16-20') === '73d18881deab6985d893cbe87c4b9986') {
 
         // The found key
-        console.log('Key used: ' + line); // bacon
+        console.log('Key used: ' + line);
 
         // Create fake coupon
         console.log('Forged 80% off coupon: ' + cryptr.encrypt('JUL18-80'));
