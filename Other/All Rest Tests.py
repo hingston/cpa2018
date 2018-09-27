@@ -2,8 +2,6 @@ import json
 
 import requests
 
-
-
 data = json.dumps({
     "UserId": 8,
 
@@ -13,7 +11,5 @@ r = requests.post(
     data=data,
     headers={'Content-type': 'application/json'},
 )
-
-
 
 print(r)
